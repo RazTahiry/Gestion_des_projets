@@ -86,6 +86,12 @@ const updateUserTask = async (req, res) => {
 
 // Suppression d'une tâche spécifique d'un utilisateur
 const deleteUserTask = async (req, res) => {
+  const { role } = req.user;
+
+  if (role !== "admin") {
+    return res.sendStatus(403);
+  }
+
   const { userId, taskId } = req.params;
 
   try {

@@ -2,31 +2,30 @@ const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/user.controller");
 const taskController = require("../controllers/task.controller");
+const {
+  login,
+  logout,
+  register,
+  authenticate
+} = require("../controllers/auth.controller");
 
 // User routes
+router.post("/users", authenticate, userController.createUser);
+router.get("/users", authenticate, userController.getUsers);
+router.get("/users/:userId", authenticate, userController.getUser);
+router.put("/users/:userId", authenticate, userController.updateUser);
+router.delete("/users/:userId", authenticate, userController.deleteUser);
 
-router.post("/users", userController.createUser);
-
-router.get("/users", userController.getUsers);
-
-router.get("/users/:userId", userController.getUser);
-
-router.put("/users/:userId", userController.updateUser);
-
-router.delete("/users/:userId", userController.deleteUser);
+router.post("/users/register", register);
+router.post("/users/login", login);
+router.post("/users/logout", logout);
 
 // Task routes
-
-router.post("/users/:userId/tasks", taskController.createUserTask);
-
-router.get("/tasks", taskController.getTasks);
-
-router.get("/users/:userId/tasks", taskController.getUserTasks);
-
-router.get("/users/:userId/tasks/:taskId", taskController.getUserTask);
-
-router.put("/users/:userId/tasks/:taskId", taskController.updateUserTask);
-
-router.delete("/users/:userId/tasks/:taskId", taskController.deleteUserTask);
+router.post("/users/:userId/tasks", authenticate, taskController.createUserTask);
+router.get("/tasks", authenticate, taskController.getTasks);
+router.get("/users/:userId/tasks", authenticate, taskController.getUserTasks);
+router.get("/users/:userId/tasks/:taskId", authenticate, taskController.getUserTask);
+router.put("/users/:userId/tasks/:taskId", authenticate, taskController.updateUserTask);
+router.delete("/users/:userId/tasks/:taskId", authenticate, taskController.deleteUserTask);
 
 module.exports = router;

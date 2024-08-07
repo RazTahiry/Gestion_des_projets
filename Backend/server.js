@@ -2,9 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const routes = require("./routes/routes");
 const db = require("./models/index");
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(express.json());
+app.use(bodyParser.json());
 
 db.sequelize
   .sync()

@@ -2,7 +2,18 @@ const { User } = require("../models");
 
 // Création d'un utilisateur
 const createUser = async (req, res) => {
+  const { role } = req.user;
+
+  if (role !== "admin") {
+    return res.sendStatus(403);
+  }
+
+  const { email } = req.body;
   try {
+    const existingUser = await User.findOne({ where: { email: email } });
+    if (existingUser) {
+      return res.status(400).json({ error: "Email déjà utilisé." });
+    }
     const user = await User.create(req.body);
     res.status(201).json(user);
   } catch (err) {
@@ -38,6 +49,12 @@ const getUser = async (req, res) => {
 
 // Mise à jour d'un utilisateur par ID
 const updateUser = async (req, res) => {
+  const { role } = req.user;
+
+  if (role !== "admin") {
+    return res.sendStatus(403);
+  }
+
   const { userId } = req.params;
 
   try {
@@ -58,6 +75,12 @@ const updateUser = async (req, res) => {
 
 // Suppression d'un utilisateur par ID
 const deleteUser = async (req, res) => {
+  const { role } = req.user;
+
+  if (role !== "admin") {
+    return res.sendStatus(403);
+  }
+
   const { userId } = req.params;
 
   try {
