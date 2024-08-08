@@ -4,8 +4,11 @@
   "description": "Backend de l'application de gestion des projets",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "create-db": "node config/db.js",
+    "migrate": "sequelize db:migrate",
+    "seed": "sequelize db:seed:all"
   },
   "author": "Tahiry Razanamara",
   "license": "ISC",

@@ -20,7 +20,7 @@ module.exports = {
       status: {
         type: Sequelize.STRING,
         allowNull: true,
-        defaultValue: "toDo",
+        defaultValue: "En attente",
       },
       Pid_person: {
         type: Sequelize.UUID,

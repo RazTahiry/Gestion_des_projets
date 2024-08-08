@@ -21,6 +21,7 @@ const register = async (req, res) => {
   }
 };
 
+// Fonction qui permet de connecter un utilisateur
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -58,6 +59,7 @@ const login = async (req, res) => {
   }
 };
 
+// Fonction pour se déconnecter
 const logout = (req, res) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
