@@ -13,7 +13,7 @@ const {
 router.post("/users", authenticate, userController.createUser);
 router.get("/users", authenticate, userController.getUsers);
 router.get("/users/:userId", authenticate, userController.getUser);
-router.put("/users/:userId", authenticate, userController.updateUser);
+router.patch("/users/:userId", authenticate, userController.updateUser);
 router.delete("/users/:userId", authenticate, userController.deleteUser);
 
 // Auth routes
@@ -26,7 +26,7 @@ router.post("/users/:userId/tasks", authenticate, taskController.createUserTask)
 router.get("/tasks", authenticate, taskController.getTasks);
 router.get("/users/:userId/tasks", authenticate, taskController.getUserTasks);
 router.get("/users/:userId/tasks/:taskId", authenticate, taskController.getUserTask);
-router.put("/users/:userId/tasks/:taskId", authenticate, taskController.updateUserTask);
+router.patch("/users/:userId/tasks/:taskId", authenticate, taskController.updateUserTask);
 router.delete("/users/:userId/tasks/:taskId", authenticate, taskController.deleteUserTask);
 
 module.exports = router;

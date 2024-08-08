@@ -59,7 +59,15 @@ const login = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    return res.status(401).json({ error: "Authorization header non trouvé." });
+  }
+
+  const token = authHeader.split(" ")[1];
+  if (!token) {
+    return res.status(401).json({ error: "Token invalide." });
+  }
   blacklist.add(token);
   res.status(200).json({ message: "Déconnexion réussie." });
 };

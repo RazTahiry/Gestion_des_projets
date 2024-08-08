@@ -32,9 +32,9 @@ module.exports = (sequelize, DataTypes) => {
       status: {
         type: DataTypes.STRING,
         allowNull: true,
-        defaultValue: "toDo",
+        defaultValue: "En attente",
         validate: {
-          isIn: [["toDo", "pending", "done"]],
+          isIn: [[ "En attente","En cours", "Complété"]],
         },
       },
       Pid_person: {
