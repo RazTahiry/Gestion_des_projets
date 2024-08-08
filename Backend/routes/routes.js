@@ -16,6 +16,7 @@ router.get("/users/:userId", authenticate, userController.getUser);
 router.put("/users/:userId", authenticate, userController.updateUser);
 router.delete("/users/:userId", authenticate, userController.deleteUser);
 
+// Auth routes
 router.post("/users/register", register);
 router.post("/users/login", login);
 router.post("/users/logout", logout);
