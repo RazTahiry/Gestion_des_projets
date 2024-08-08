@@ -113,7 +113,7 @@ Cette application de gestion de projets est développée avec Vue 3 pour le fron
 
    - Page d'accueil de l'application
 
-   ![Page d'accueil](screenshoots/landing-page.png)
+   ![Page d'accueil](screenshoots/landing_page.png)
 
 2. **Connexion :**
 
