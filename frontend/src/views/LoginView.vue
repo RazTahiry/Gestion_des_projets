@@ -1,9 +1,9 @@
 <script setup>
-import LoginPage from '../components/LoginPage.vue'
+import LoginForm from '../components/LoginForm.vue'
 </script>
 
 <template>
   <main>
-    <LoginPage />
+    <LoginForm />
   </main>
 </template>
