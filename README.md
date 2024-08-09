@@ -153,11 +153,6 @@ Cette application de gestion de projets est développée avec Vue 3 pour le fron
 - Assurez-vous que votre base de données MySQL est en cours d'exécution avant de lancer les migrations et les seeds.
 - Le backend écoute sur le port 3000 par défaut, et le frontend sur le port 5173.
 
-
-Voici comment vous pourriez intégrer cette explication dans le README pour informer les utilisateurs des limitations et des problèmes connus :
-
----
-
 ## Limitations
 
 ### Problèmes connus
